@@ -12,7 +12,7 @@ const DataTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/data");
+        const response = await axios.get("https://clientbackend-qmlk.onrender.com/api/data");
         setData(response.data);
         findDuplicates(response.data); // Call the function to find duplicates
         setIsLoading(false);
@@ -75,7 +75,7 @@ const DataTable = () => {
 
   const handleDelete = () => {
     selectedIds.forEach(async (id) => {
-      axios.delete(`http://localhost:5000/api/data/${id}`).then(() => {
+      axios.delete(`https://clientbackend-qmlk.onrender.com/api/data/${id}`).then(() => {
         setData((prev) => prev.filter((item) => item._id !== id));
       });
     });
